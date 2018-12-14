@@ -4,27 +4,27 @@ It's time to make a real database for our Facebook apps. As you might remember, 
 
 Let's expand this simple structure to something a little bit deeper. Let's also use the conceptual structure of _primary_ and _foreign_ keys. Our database, at the end of the day, should be structured like this:
 
-- Users (_table_)
+- Users (_table_) [Y]
   - `id` (_column_): integer, **primary key**
   - `name`: string
   - `age`: integer
-- Posts
+- Posts [Y]
   - `id`: integer, **primary key**
   - `poster_id`: integer, **foreign key** referencing the column `id` in Users.
   - `body`: string
-- Likes
+- Likes [Y]
   - `id`: integer, **primary key**
   - `liker_id`: integer, **foreign key** referencing the column `id` in Users
   - `post_id`: integer, **foreign key** referencing the column `id` in Posts.
-- Comments
+- Comments [Y]
   - `id`: integer, **primary key**
   - `commenter_id`: integer, **foreign key** referencing the column `id` in Users.
   - `post_id`: integer, **foreign key** referencing the column `id` in Posts.
   - `body`: string
-- Albums
+- Albums [Y]
   - `id`: integer, **primary key**
   - `user_id`: integer, **foreign key** referencing the column `id` in Users
-- Pictures
+- Pictures []
   - `id`: integer, **primary key**
   - `album_id`: integer, **foreign key** referencing the column `id` in Albums
   - `url`: string
